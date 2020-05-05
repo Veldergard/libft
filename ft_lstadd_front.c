@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olaurine <olaurine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/29 20:11:20 by olaurine          #+#    #+#             */
-/*   Updated: 2020/05/04 02:25:06 by olaurine         ###   ########.fr       */
+/*   Created: 2020/05/04 19:23:35 by olaurine          #+#    #+#             */
+/*   Updated: 2020/05/04 19:32:35 by olaurine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** ft_memset fills the first n  bytes of the memory area
-** pointed to by s with the constant byte c.
+** Adds the element ’new’ at the beginning of the
+** list.
 **
-** void *s - memory area
-** int c - constant byte
-** size_t n - number of bytes to fill
-**
-** The ft_memset() function returns a pointer to the memory area s.
+** t_list **lst - The address of a pointer to the first link of
+** a list.
+** t_list *new - The address of a pointer to the element to be
+** added to the list.
 */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	size_t			i;
-	unsigned char	*ucs;
-
-	i = 0;
-	ucs = (unsigned char*)s;
-	while (i != n)
-		ucs[i++] = (unsigned char)c;
-	return (s);
+	if (!lst || !new)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }

@@ -6,7 +6,7 @@
 /*   By: olaurine <olaurine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 01:29:20 by olaurine          #+#    #+#             */
-/*   Updated: 2020/05/03 19:24:38 by olaurine         ###   ########.fr       */
+/*   Updated: 2020/05/04 21:14:12 by olaurine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 int		num_len(int n)
 {
-	int			len;
+	int				len;
 	long long int	nb;
 
 	nb = ft_abs_l(n);

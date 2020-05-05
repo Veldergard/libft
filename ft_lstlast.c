@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olaurine <olaurine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/29 20:11:20 by olaurine          #+#    #+#             */
-/*   Updated: 2020/05/04 02:25:06 by olaurine         ###   ########.fr       */
+/*   Created: 2020/05/04 19:33:05 by olaurine          #+#    #+#             */
+/*   Updated: 2020/05/04 19:50:52 by olaurine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** ft_memset fills the first n  bytes of the memory area
-** pointed to by s with the constant byte c.
+** Returns the last element of the list.
 **
-** void *s - memory area
-** int c - constant byte
-** size_t n - number of bytes to fill
+** t_list *lst - The beginning of the list.
 **
-** The ft_memset() function returns a pointer to the memory area s.
+** Last element of the list.
 */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t			i;
-	unsigned char	*ucs;
-
-	i = 0;
-	ucs = (unsigned char*)s;
-	while (i != n)
-		ucs[i++] = (unsigned char)c;
-	return (s);
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

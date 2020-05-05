@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olaurine <olaurine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/29 20:11:20 by olaurine          #+#    #+#             */
-/*   Updated: 2020/05/04 02:25:06 by olaurine         ###   ########.fr       */
+/*   Created: 2020/05/04 01:45:58 by olaurine          #+#    #+#             */
+/*   Updated: 2020/05/04 02:13:25 by olaurine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** ft_memset fills the first n  bytes of the memory area
-** pointed to by s with the constant byte c.
+** Outputs the integer ’n’ to the given file
+** descriptor.
 **
-** void *s - memory area
-** int c - constant byte
-** size_t n - number of bytes to fill
-**
-** The ft_memset() function returns a pointer to the memory area s.
+** #1. The integer to output.
+** #2. The file descriptor on which to write.
 */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t			i;
-	unsigned char	*ucs;
-
-	i = 0;
-	ucs = (unsigned char*)s;
-	while (i != n)
-		ucs[i++] = (unsigned char)c;
-	return (s);
+	if (n < 0)
+		ft_putchar_fd('-', fd);
+	if (n == 0)
+		ft_putchar_fd('0', fd);
+	else if (n / 10 == 0)
+		ft_putchar_fd('0' + n % 10, fd);
+	else
+	{
+		ft_putnbr_fd((n / 10) * (n < 0 ? -1 : 1), fd);
+		ft_putchar_fd('0' + (char)(n % 10) * (n < 0 ? -1 : 1), fd);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: olaurine <olaurine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 00:07:39 by olaurine          #+#    #+#             */
-/*   Updated: 2020/05/03 03:34:22 by olaurine         ###   ########.fr       */
+/*   Updated: 2020/05/04 17:13:35 by olaurine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	else
 	{
 		while (++i <= n)
-		{
 			ucdest[n - i] = ucsrc[n - i];
-		}
 	}
 	return (dest);
 }

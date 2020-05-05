@@ -6,7 +6,7 @@
 /*   By: olaurine <olaurine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 19:21:53 by olaurine          #+#    #+#             */
-/*   Updated: 2020/05/03 19:30:09 by olaurine         ###   ########.fr       */
+/*   Updated: 2020/05/04 17:04:57 by olaurine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	while (i < len)
 	{
-		result[i++] = f(i, s[i]);
+		result[i] = f(i, s[i]);
+		i++;
 	}
 	result[i] = '\0';
 	return (result);

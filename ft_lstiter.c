@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olaurine <olaurine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/29 20:11:20 by olaurine          #+#    #+#             */
-/*   Updated: 2020/05/04 02:25:06 by olaurine         ###   ########.fr       */
+/*   Created: 2020/05/04 21:04:56 by olaurine          #+#    #+#             */
+/*   Updated: 2020/05/04 21:09:38 by olaurine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** ft_memset fills the first n  bytes of the memory area
-** pointed to by s with the constant byte c.
+** Iterates the list ’lst’ and applies the function
+** ’f’ to the content of each element.
 **
-** void *s - memory area
-** int c - constant byte
-** size_t n - number of bytes to fill
-**
-** The ft_memset() function returns a pointer to the memory area s.
+** t_list *lst - The adress of a pointer to an element.
+** void (*f)(void*) - The adress of the function
+** used to iterate on the list.
 */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	ft_lstiter(t_list *lst, void (*f)(void*))
 {
-	size_t			i;
-	unsigned char	*ucs;
-
-	i = 0;
-	ucs = (unsigned char*)s;
-	while (i != n)
-		ucs[i++] = (unsigned char)c;
-	return (s);
+	if (!lst || !f)
+		return ;
+	while (lst)
+	{
+		if (lst->content)
+			f(lst->content);
+		lst = lst->next;
+	}
 }
