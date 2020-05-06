@@ -6,7 +6,7 @@
 #    By: olaurine <olaurine@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 00:26:54 by olaurine          #+#    #+#              #
-#    Updated: 2020/05/04 23:22:19 by olaurine         ###   ########.fr        #
+#    Updated: 2020/05/06 20:06:16 by olaurine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,25 +30,29 @@ BNS_OBJECTS = $(patsubst %.c,%.o,$(BNS))
 
 HEADERS = libft.h
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(SRC_OBJECTS) $(BNS_OBJECTS)
-	ar rc $(NAME) $(SRC_OBJECTS) $(BNS_OBJECTS)
-	ranlib $(NAME)
+$(NAME): $(SRC_OBJECTS)
+	@ar rc $(NAME) $(SRC_OBJECTS)
+	@ranlib $(NAME)
 
+# $@ -Имя цели обрабатываемого правила
+# $< Имя первой зависимости обрабатываемого правила
 %.o: %.c $(HEADERS)
-	clang $(FLAGS) -c $< -o $@
+	@gcc $(FLAGS) -c $< -o $@
 
 clean:
-	/bin/rm -rf $(SRC_OBJECTS) $(BNS_OBJECTS)
+	@/bin/rm -rf $(SRC_OBJECTS) $(BNS_OBJECTS)
 
 fclean: clean
-	/bin/rm -rf $(NAME)
+	@/bin/rm -rf $(NAME)
 
 re: fclean all
 
-so:
-	gcc *.c -c -fpic
-	gcc *.o -shared -o libft.so
+bonus: $(BNS_OBJECTS)
+ifeq ($(shell ar t $(NAME) | grep lst),)
+	@ar rc $(NAME) $(BNS_OBJECTS)
+	@ranlib $(NAME)
+endif

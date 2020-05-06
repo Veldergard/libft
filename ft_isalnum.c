@@ -6,7 +6,7 @@
 /*   By: olaurine <olaurine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 20:41:16 by olaurine          #+#    #+#             */
-/*   Updated: 2020/05/03 03:45:01 by olaurine         ###   ########.fr       */
+/*   Updated: 2020/05/06 19:35:50 by olaurine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@
 
 int		ft_isalnum(int c)
 {
-	return ((ft_isalpha((char)c) || ft_isdigit((char)c)) ? 8 : 0);
+	return ((ft_isalpha(c) || ft_isdigit(c)) ? 8 : 0);
 }

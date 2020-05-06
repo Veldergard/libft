@@ -6,7 +6,7 @@
 /*   By: olaurine <olaurine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 18:47:58 by olaurine          #+#    #+#             */
-/*   Updated: 2020/05/03 03:21:29 by olaurine         ###   ########.fr       */
+/*   Updated: 2020/05/06 19:50:34 by olaurine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		ft_atoi(const char *nptr)
 	int porn;
 
 	porn = 1;
-	while (*nptr && (*nptr <= 32 || *nptr >= 127))
+	while (*nptr && ((*nptr >= 9 && *nptr <= 13) || *nptr == ' '))
 		nptr++;
 	if (*nptr == '-' || *nptr == '+')
 	{
@@ -39,8 +39,6 @@ int		ft_atoi(const char *nptr)
 		nptr++;
 	}
 	numb = 0;
-	if (*nptr == '0' && porn > 0)
-		return (0);
 	while (*nptr >= '0' && *nptr <= '9')
 	{
 		if (numb < 0 && porn < 0)
