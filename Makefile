@@ -48,3 +48,7 @@ fclean: clean
 	/bin/rm -rf $(NAME)
 
 re: fclean all
+
+so:
+	gcc *.c -c -fpic
+	gcc *.o -shared -o libft.so
