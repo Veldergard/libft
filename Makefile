@@ -6,7 +6,7 @@
 #    By: olaurine <olaurine@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 00:26:54 by olaurine          #+#    #+#              #
-#    Updated: 2020/05/06 20:06:16 by olaurine         ###   ########.fr        #
+#    Updated: 2020/05/06 20:37:19 by olaurine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,22 +37,27 @@ all: $(NAME)
 $(NAME): $(SRC_OBJECTS)
 	@ar rc $(NAME) $(SRC_OBJECTS)
 	@ranlib $(NAME)
+	@echo "$(NAME) generated"
 
 # $@ -Имя цели обрабатываемого правила
 # $< Имя первой зависимости обрабатываемого правила
 %.o: %.c $(HEADERS)
 	@gcc $(FLAGS) -c $< -o $@
+	@echo "$@ added"
 
 clean:
 	@/bin/rm -rf $(SRC_OBJECTS) $(BNS_OBJECTS)
+	@echo "All objects removed"
 
 fclean: clean
 	@/bin/rm -rf $(NAME)
+	@echo "$(NAME) removed"
 
 re: fclean all
 
 bonus: $(BNS_OBJECTS)
-ifeq ($(shell ar t $(NAME) | grep lst),)
+ifeq ($(shell test -f $(NAME) && ar t $(NAME) | grep lst),)
 	@ar rc $(NAME) $(BNS_OBJECTS)
 	@ranlib $(NAME)
+	@echo "Bonus added"
 endif
