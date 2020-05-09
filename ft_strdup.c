@@ -6,7 +6,7 @@
 /*   By: olaurine <olaurine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 21:07:28 by olaurine          #+#    #+#             */
-/*   Updated: 2020/05/01 22:19:02 by olaurine         ###   ########.fr       */
+/*   Updated: 2020/05/09 16:24:07 by olaurine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 
 char	*ft_strdup(const char *s)
 {
-	int		i;
-	char	*result;
+	size_t		i;
+	char		*result;
 
 	i = 0;
 	while (s[i])

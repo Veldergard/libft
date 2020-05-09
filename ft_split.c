@@ -6,7 +6,7 @@
 /*   By: olaurine <olaurine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 18:33:26 by olaurine          #+#    #+#             */
-/*   Updated: 2020/05/03 18:25:37 by olaurine         ###   ########.fr       */
+/*   Updated: 2020/05/09 15:56:42 by olaurine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 #include "libft.h"
 
-size_t	ft_count_words(char const *s, char c)
+static size_t	ft_count_words(char const *s, char c)
 {
 	size_t		counter;
 	char		finded;
@@ -48,7 +48,7 @@ size_t	ft_count_words(char const *s, char c)
 	return (counter);
 }
 
-size_t	ft_word_len(char const *s, char c)
+static size_t	ft_word_len(char const *s, char c)
 {
 	size_t		counter;
 
@@ -62,7 +62,7 @@ size_t	ft_word_len(char const *s, char c)
 	return (counter);
 }
 
-char	**ft_split(char const *s, char c)
+char			**ft_split(char const *s, char c)
 {
 	char		**result;
 	size_t		arr_len;
@@ -82,7 +82,7 @@ char	**ft_split(char const *s, char c)
 			s++;
 		len = ft_word_len(s, c);
 		if (!(result[i] = (char*)malloc((len + 1) * sizeof(char))))
-			return (ft_clean_2d_array((void**)result, i));
+			return (ft_clean_array((void**)result, i));
 		while (j < len)
 			result[i][j++] = *(s++);
 		result[i++][j] = '\0';

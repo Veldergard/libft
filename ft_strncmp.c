@@ -6,7 +6,7 @@
 /*   By: olaurine <olaurine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 18:24:13 by olaurine          #+#    #+#             */
-/*   Updated: 2020/05/06 19:33:25 by olaurine         ###   ########.fr       */
+/*   Updated: 2020/05/09 17:53:54 by olaurine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 	ucs2 = (unsigned char*)s2;
 	while (i < n && ucs1[i] && ucs2[i] && ucs1[i] == ucs2[i])
 		i++;
-	if (i == n || ucs1[i] == ucs2[i])
+	if (i == n)
 		return (0);
 	return ((ucs1[i] - ucs2[i]));
 }

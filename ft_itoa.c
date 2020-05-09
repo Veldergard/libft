@@ -6,7 +6,7 @@
 /*   By: olaurine <olaurine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 01:29:20 by olaurine          #+#    #+#             */
-/*   Updated: 2020/05/04 21:14:12 by olaurine         ###   ########.fr       */
+/*   Updated: 2020/05/09 16:11:25 by olaurine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@
 
 #include "libft.h"
 
-int		num_len(int n)
+static size_t	num_len(int n)
 {
-	int				len;
+	size_t			len;
 	long long int	nb;
 
 	nb = ft_abs_l(n);
@@ -42,10 +42,10 @@ int		num_len(int n)
 	return (len);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	char			*result;
-	unsigned int	len;
+	size_t			len;
 	long long int	nb;
 
 	nb = ft_abs_l(n);

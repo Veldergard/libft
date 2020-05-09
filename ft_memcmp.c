@@ -6,7 +6,7 @@
 /*   By: olaurine <olaurine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 01:55:49 by olaurine          #+#    #+#             */
-/*   Updated: 2020/05/06 18:30:01 by olaurine         ###   ########.fr       */
+/*   Updated: 2020/05/09 16:07:36 by olaurine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@
 int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t				i;
-	const unsigned char	*ucs1;
-	const unsigned char	*ucs2;
+	unsigned char		*ucs1;
+	unsigned char		*ucs2;
 
 	i = 0;
 	ucs1 = (unsigned char*)s1;

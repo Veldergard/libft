@@ -6,7 +6,7 @@
 #    By: olaurine <olaurine@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 00:26:54 by olaurine          #+#    #+#              #
-#    Updated: 2020/05/06 20:37:19 by olaurine         ###   ########.fr        #
+#    Updated: 2020/05/09 18:29:42 by olaurine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ BNS_OBJECTS = $(patsubst %.c,%.o,$(BNS))
 
 HEADERS = libft.h
 
+CC = gcc
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
@@ -42,7 +43,7 @@ $(NAME): $(SRC_OBJECTS)
 # $@ -Имя цели обрабатываемого правила
 # $< Имя первой зависимости обрабатываемого правила
 %.o: %.c $(HEADERS)
-	@gcc $(FLAGS) -c $< -o $@
+	@$(CC) $(FLAGS) -c $< -o $@
 	@echo "$@ added"
 
 clean:

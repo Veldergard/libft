@@ -6,7 +6,7 @@
 /*   By: olaurine <olaurine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:27:15 by olaurine          #+#    #+#             */
-/*   Updated: 2020/05/04 23:22:02 by olaurine         ###   ########.fr       */
+/*   Updated: 2020/05/09 15:56:02 by olaurine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ long long int		ft_abs_l(long long int n);
 long int			ft_abs_i(long int n);
 short int			ft_abs_s(short int n);
 char				ft_abs_c(char n);
-void				*ft_clean_2d_array(void **array, size_t len);
+void				*ft_clean_array(void **array, size_t len);
 void				*ft_memset(void *s, int c, size_t n);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dest, const void *src, size_t n);
